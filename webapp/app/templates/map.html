@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="{{ url_for('static', filename='css/map.css') }}" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.20&sensor=false"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static', filename='css/custom.css') }}"" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <title>Planificateur Intelligent - Trajet</title>
+    <style type="text/css">
+#iw-container {
+  margin-bottom: 10px;
+  max-width: 350px;
+}
+#iw-container .iw-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: #1abc9c;
+    color: white;
+    margin: 0;
+    border-radius: 2px 2px 0 0;
+
+}
+
+#iw-container .iw-content {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  margin-right: 1px;
+  padding: 15px 5px 20px 15px;
+  max-height: 140px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.iw-subTitle {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 0;
+}
+
+
+.iw-bottom-gradient {
+  position: absolute;
+  width: 326px;
+  height: 25px;
+  bottom: 10px;
+  right: 10px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+
+.iw-content img {
+  float: right;
+  margin: 0 5px 5px 10px; 
+}
+
+.gm-style-iw {
+   width: 350px !important;
+   top: 15px !important;
+   left: 0 !important;
+   background-color: #fff;
+   box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+   border: 1px solid rgba(72, 181, 233, 0.6);
+   border-radius: 2px 2px 10px 10px; // apply 10px to the bottom corners of the infowindow
+}
+
+
+  </style>
+
+  </head>
+    <body>
+
+  <!-- Sidebar contenant le recapitulatif du trajet -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav" id="side_bar">
+      <div id="recap">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <section class="main-timeline-section">
+        <div class="conference-center-line"></div>
+
+        <div class="conference-timeline-content">
+
+          <b><div class="hedding-title">'{{ h_dep }}'<br />Lille</div></b>
+          <!-- ici on intègre toutes les étapes via la propriété js innerHTML-->
+            <div id="recap_trajet">
+          </div>
+            <b><div class="hedding-title">Marseille<br />'{{ time[5] }}'</div></b>
+
+          </div>
+        </div>
+      </section>
+  </div>
+</div>
+    </div>
+    </ul>
+  </div>
+  <!-- Affichage de la carete -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>
+      <a href="#menu-toggle" class="gradient-menu" id="menu-toggle"></a>
+          &nbsp;Map&nbsp;<!-- a href="#menu-toggle" class="btn btn-default" >Toggle Sidebar</a -->
+          </h1>
+          <!-- you can use tables or divs for the overall layout -->
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- /#page-content-wrapper -->
+
+
+<script>
+/* Récupération de toutes les informations transmises par le formulaire utilisateur */
+var trajet = [];
+var score =[];
+var dep = '{{ depart }}';
+var arr = '{{ arrivee }}';
+var tags = '{{ tags }}';
+var recom = '{{ test }}';
+var time = ['{{ time[0] }}', '{{ time[1] }}', '{{ time[2] }}', '{{ time[3] }}','{{ time[4] }}','{{ time[5] }}'];
+var heure = '{{ h_dep }}';
+var escales= ['{{ test[0][0] }}', '{{ test[1][0] }}', '{{ test[2][0] }}', '{{ test[3][0] }}','{{ test[4][0] }}','{{ test[5][0] }}'];
+var scores= ['{{ test[0][1] }}', '{{ test[1][1] }}', '{{ test[2][1] }}', '{{ test[3][1] }}','{{ test[4][1] }}','{{ test[5][1] }}'];
+
+for (i=0;i<escales.length; i++) {
+  if (!escales[i]) {
+    trajet=trajet;
+  }
+  trajet.push(escales[i])
+}
+for (i=0;i<recom.length; i++) {
+  if (!recom[i][i]) {
+    score=score;
+  }
+  score.push(recom[i][1])
+}
+
+$.fn.stars = function() {
+    return $(this).each(function() {
+        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+    });
+}
+
+$(function() {
+  console.log("Calling stars()");
+  $('.result .results-content span.stars').stars();
+});
+
+/* Ajout des étapes dans la sidebar */
+var div = document.getElementById('recap_trajet');
+for (var i = 1; i < escales.length-1; i++) {
+    div.innerHTML+='<div class="timeline-article content-right-container">'+
+                '<div class="content-date">'+
+                    '<span>'+time[i]+'</span>'+
+                '</div>'+
+                '<div class="meta-date">'+'</div>'+
+                '<div class="content-box">'+
+                  '<p>'+escales[i]+'</p>'+
+                '</div>'+
+            '</div>'
+}
+
+/* Création de la carte */
+function initMap() {
+        var myWrapper = $("#wrapper");
+        $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+          myWrapper.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+            // code to execute after transition ends
+            google.maps.event.trigger(map, 'resize');
+          });
+        });
+
+        var mapStyle = [{'featureType': 'all', 'elementType': 'geometry.fill', 'stylers': [{'weight': '2.00'}]}, {'featureType': 'all', 'elementType': 'geometry.stroke', 'stylers': [{'color': '#9c9c9c'}]}, {'featureType': 'all', 'elementType': 'labels.text', 'stylers': [{'visibility': 'on'}]}, {'featureType': 'landscape', 'elementType': 'all', 'stylers': [{'color': '#f2f2f2'}]}, {'featureType': 'landscape', 'elementType': 'geometry.fill', 'stylers': [{'color': '#ffffff'}]}, {'featureType': 'landscape.man_made', 'elementType': 'geometry.fill', 'stylers': [{'color': '#ffffff'}]}, {'featureType': 'poi', 'elementType': 'all', 'stylers': [{'visibility': 'off'}]}, {'featureType': 'road', 'elementType': 'all', 'stylers': [{'saturation': -100}, {'lightness': 45}]}, {'featureType': 'road', 'elementType': 'geometry.fill', 'stylers': [{'color': '#eeeeee'}]}, {'featureType': 'road', 'elementType': 'labels.text.fill', 'stylers': [{'color': '#7b7b7b'}]}, {'featureType': 'road', 'elementType': 'labels.text.stroke', 'stylers': [{'color': '#ffffff'}]}, {'featureType': 'road.highway', 'elementType': 'all', 'stylers': [{'visibility': 'simplified'}]}, {'featureType': 'road.arterial', 'elementType': 'labels.icon', 'stylers': [{'visibility': 'off'}]}, {'featureType': 'transit', 'elementType': 'all', 'stylers': [{'visibility': 'off'}]}, {'featureType': 'water', 'elementType': 'all', 'stylers': [{'color': '#46bcec'}, {'visibility': 'on'}]}, {'featureType': 'water', 'elementType': 'geometry.fill', 'stylers': [{'color': '#c8d7d4'}]}, {'featureType': 'water', 'elementType': 'labels.text.fill', 'stylers': [{'color': '#070707'}]}, {'featureType': 'water', 'elementType': 'labels.text.stroke', 'stylers': [{'color': '#ffffff'}]}];
+
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          styles: mapStyle,
+          //center: ('Bourges, France'),
+          //zoom: 1
+        });
+        
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          draggable: false,
+          map: map,
+          panel: document.getElementById('right-panel'),
+          suppressMarkers : true
+        });
+  
+        directionsDisplay.addListener('directions_changed', function() {
+        });
+
+        displayRoute(dep, arr, directionsService,
+            directionsDisplay);
+
+        geocoder = new google.maps.Geocoder();
+        for (var i = 0; i < trajet.length; i++) {
+            codeAddress(geocoder, map, trajet[i], scores[i]);
+       }
+                
+}
+
+      function codeAddress(geocoder, map, address, score) {
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            map.setCenter(results[0].geometry.location);
+            
+            switch(address) {
+                case dep:
+                    color = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+                    content = address;
+                    break;
+                case arr:
+                    color = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+                    content = address;
+                    break;
+                default:
+                    color = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+                    content = address;
+            }            
+            var infowindow = new google.maps.InfoWindow({
+              content: '<div id="iw-container">' + 
+                      '<div class="iw-title">'+address+'</div>' +
+                      '<div class="iw-content">' +
+                       '<img src="{{ url_for('static', filename='cities/Bordeaux.jpg') }}" alt="Smiley face" height="125" width="125">'+'Nam lorem dui, molestie nec elementum nec, lobortis sed lacus. Morbi nec tellus dolor.' +
+                      '<div class="iw-subTitle">Score</div>' + score + ' / 5.0 ' +
+                      '<div class="iw-bottom-gradient"></div>' +
+                       '</div>'
+            });
+            
+            /* Personalisation des marqueurs*/
+            var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+              icon : color
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(map,marker);
+
+             // Reference to the DIV which receives the contents of the infowindow using jQuery
+             var iwOuter = $('.gm-style-iw');
+
+             /* The DIV we want to change is above the .gm-style-iw DIV.
+              * So, we use jQuery and create a iwBackground variable,
+              * and took advantage of the existing reference to .gm-style-iw for the previous DIV with .prev().
+              */
+             var iwBackground = iwOuter.prev();
+
+             // Remove the background shadow DIV
+             iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+
+             // Remove the white background DIV
+             iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+             var iwCloseBtn = iwOuter.next();
+
+          // Apply the desired effect to the close button
+          iwCloseBtn.css({
+            opacity: '1', // by default the close button has an opacity of 0.7
+            right: '38px', top: '3px', // button repositioning
+            border: '7px solid #1abc9c', // increasing button border and new color
+            'border-radius': '13px', // circular effect
+            'box-shadow': '0 0 5px #1abc9c' // 3D effect to highlight the button
+            });
+
+          // The API automatically applies 0.7 opacity to the button after the mouseout event.
+          // This function reverses this event to the desired value.
+          iwCloseBtn.mouseout(function(){
+            $(this).css({opacity: '1'});
+          });
+
+      });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+      function displayRoute(origin, destination, service, display) {
+        var waypts=[];
+        for (var i = 1; i < escales.length-1 ; i++) { 
+          if (!escales[i]) {
+              // si l'escale n'existe pas on n'ajoute rien a waypts
+              waypts=waypts;
+          } else {
+              waypts.push({
+                  location: escales[i]
+              });
+          }         
+        }
+        service.route({
+          origin: origin,
+          destination: destination,
+          waypoints: waypts,
+          travelMode: 'DRIVING',
+          avoidTolls: true,
+          optimizeWaypoints: true
+        }, function(response, status) {
+          if (status === 'OK') {
+            display.setDirections(response);
+            alert('{{ tags }}')
+          } else {
+            alert('Could not display directions due to: ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8pxsl2jFQSwshMT2I5Weue8CKLgxalY8&callback=initMap">
+    </script>
+  </body>
+</html>
