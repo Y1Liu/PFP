@@ -21,6 +21,7 @@ class Landing extends Component {
             Register
           </Link>
         </li>
+     
       </ul>
     )
 
@@ -32,10 +33,16 @@ class Landing extends Component {
           </Link>
         </li>
         <li className="nav-item">
+          <Link to="/form" className="nav-link">
+            Form
+          </Link>
+        </li>
+        <li className="nav-item">
           <a href="" onClick={this.logOut.bind(this)} className="nav-link">
             Logout
           </a>
         </li>
+
       </ul>
     )
 

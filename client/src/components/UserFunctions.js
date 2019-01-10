@@ -41,3 +41,16 @@ export const getProfile = user => {
       console.log(err)
     })
 }
+
+export const trajet = newTrajet => {
+  return axios
+    .post('trajets/trajet', {
+      first_name: newTrajet.first_name,
+      last_name: newTrajet.last_name,
+      email: newTrajet.email,
+      password: newTrajet.password
+    })
+    .then(response => {
+      console.log('Registered')
+    })
+}
