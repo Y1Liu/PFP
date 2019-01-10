@@ -26,9 +26,9 @@ class Login extends Component {
     }
 
     login(user).then(res => {
-      if (!res.error) {
+        if (!res.error) {
         this.props.history.push(`/profile`)
-      }
+        }
     })
   }
 
@@ -36,7 +36,6 @@ class Login extends Component {
     return (
 
       <div className="container">
-       <div dangerouslySetInnerHTML={{__html: '<h3>hahhah</h3>'}}></div>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
@@ -73,6 +72,8 @@ class Login extends Component {
           </div>
         </div>
       </div>
+
+
     )
   }
 }

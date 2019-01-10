@@ -1,0 +1,266 @@
+body {
+	width:100%;
+	height: 100vh;
+}
+.site {
+	height: 100%;
+	
+}
+/* Bootstrap */
+
+.row {
+	margin:0;
+}
+
+/* Page connexion/inscription */
+
+#page_co {
+	background:url(./Images/201312271-imaginary-balloon-trip-in-the-mountains-1920x1080.jpg) center;
+	height: 100%;
+}
+.page_co {
+    height: 100%;
+    /*background-color: white;
+    opacity: 0.6;*/
+}
+.cont_cadre {
+    text-align: center;
+    background-color: whitesmoke;
+    opacity: 0.8;
+    border-radius: 15px;
+    margin:auto;
+}
+.titre {
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: cornflowerblue;
+    padding: 20px;
+}
+.forg_password {
+    text-align: center;
+}
+.cadres_co {
+	height: 100%;
+    align-items: center;
+}
+.line {
+    padding-bottom: 30px;
+}
+.button {
+    background-color: red;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+.mail, .password, .firstname, .lastname {
+    width: 100%;
+    padding: 10px;
+    color: cornflowerblue;
+    font-weight: bold;
+    border: solid 1.5px darkgray;
+}
+.posi_name {
+    text-align: left;
+    padding-bottom: 5px;
+    color: darkgray;
+}
+.forg_password a {
+    color: white;
+}
+
+/* Page formulaire */
+
+
+#p1_form_1 {    
+    background: url(Images/201312271-imaginary-balloon-trip-in-the-mountains-1920x1080.jpg) center;
+} /* meme sur toutes les pages */
+.p1_form {
+	height: 100%;
+    /*background-color: white;
+    opacity: 0.6;*/
+    align-items: center;
+    margin-top: 77px;
+    padding: 30px;
+    border-bottom: solid 2px cornflowerblue;
+}
+.header {
+    padding: 20px;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    align-items: center;
+    border-bottom: solid 1px cornflowerblue;
+}
+.bon-vo {
+    color: cornflowerblue;
+    font-size: 25px;
+    font-weight: bold;
+}
+.info_compte {
+    text-align: center;
+}
+.moncompte {
+    border-left: solid 1px grey;
+}
+.mesvoyages {
+    border-right: solid 1px grey;
+}
+
+
+.p1_form {
+    
+}
+.planif {
+    font-size: 55px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: sandybrown;
+}
+#depart, #destination, #date_dep, #date_arr, .transport {
+	width: 100%;
+    padding: 10px;
+    color: cornflowerblue;
+    font-weight: bold;
+    border: solid 1.5px darkgray;
+}
+.form_form {
+    padding-top: 30px;
+}
+.posi_form { 
+    text-align: center;
+    background-color: whitesmoke;
+    opacity: 0.8;
+    border-radius: 15px;
+    margin: auto;
+} /* meme chose que .cont_cadre */
+#option_form {
+    padding: 15px;
+    color: cornflowerblue;
+    font-weight: bold;
+}
+#option_form:hover {
+	cursor:pointer;
+}
+#button_form {
+    background-color: cornflowerblue;
+    border-radius: 25px;
+}
+.posi_bout {
+	margin: auto;
+}
+
+
+.p2_form {
+    width: 100%;
+}
+.titre_form {
+    text-align: center;
+    padding: 30px;
+    font-size: 60px;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+.p1_info_ville {
+    padding: 30px 0;
+}
+.p2_info_ville {
+    padding-bottom: 30px;
+}
+.c1_info_ville, .c2_info_ville {
+    padding: 0;
+}
+.gc2 {
+    float: right;
+    padding:0;
+}
+.ville1, .ville2, .ville3, .ville4, .ville5 {
+    background: url(Images/201312271-imaginary-balloon-trip-in-the-mountains-1920x1080.jpg) center;
+    padding: 0;
+}
+.ville1 {
+    height: 300px;
+}
+.ville2 {
+    height: 140px;
+    margin-bottom: 10px;
+}
+.ville3 {
+    height: 140px;
+    margin:auto;
+    margin-top: 10px;
+    margin-left: 0;
+}
+.ville4 {
+    height: 140px;
+    margin:auto;
+    margin-top: 10px;
+    margin-right: 0;
+}
+.ville5 {
+    height: 300px;
+}
+.c_ville1, .c_ville2, .c_ville3, .c_ville4, .c_ville5 {
+    align-items: center;
+    height: 100%;
+}
+.nom_ville {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Mes voyages */
+
+#page_mesvoyages {
+	background:url(Images/201312271-imaginary-balloon-trip-in-the-mountains-1920x1080.jpg) center;
+	height: 100%;
+}
+.page_mesvoyages {
+    margin-top: 77px;
+	height: 100%;
+    background: white;
+    opacity: 0.6;
+}
+.cont_titre_mv {
+    text-align: center;
+    padding: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+.voyage {
+    font-weight: bold;
+    color: grey;
+}
+.info_itineraire_mv {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.c_itine_mv {
+    border: solid 2px darkgrey;
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+.fleche-iti {
+    background: url(Images/fleche.png) 100% no-repeat;
+    background-size: cover;
+}
+.cercle {
+    width: 25px;
+    height: 25px;
+    border: solid 1px cornflowerblue;
+    margin: auto;
+    margin-top: 2px;
+    border-radius: 100%;
+    background-color: cornflowerblue;
+}
