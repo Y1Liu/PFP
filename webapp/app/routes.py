@@ -25,6 +25,8 @@ from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_r
                                 get_jwt_identity, get_raw_jwt)
 
 import pymongo as pm
+from graphnode import *
+
 from registerform import RegisterForm
 from loginform import LoginForm
 from logoutform import LogoutForm
@@ -134,26 +136,51 @@ def login():
     return result
 
 
-@app.route('/trajets/trajet', methods=['POST'])
+@app.route('/trajets/trajet', methods=['GET', 'POST'])
 def trajet():
+    result=""
     trajets = mongo1.db.trajets
-    lieudedepart = request.get_json()['first_name']
-    lieudarrivee = request.get_json()['last_name']
+    add_dep = request.get_json()['first_name']
+    print(add_dep)
+    add_arr = request.get_json()['last_name']
+
     jourdedepart = request.get_json()['email']
     jourdarrivee = request.get_json()['password']
 
-    user_id = trajets.insert({
-        'lieudedepart': lieudedepart,
-        'lieudarrivee': lieudarrivee,
-        'jourdedepart': jourdedepart,
-        'jourdarrivee': jourdarrivee,
+    datas = cp.init_matrix()
+    tags = ['Art', 'Museum']
+    overall_score = cp.get_classement(datas[2], tags, datas[1], datas[3], datas[0])[0]
 
-    })
+    start = Node(1000, 0, None, 0, 0)
+    target = Node(10000, 0, None, 0, 0)
+    escale = ['']
+    t_max = 7200
+    d_max = 400000
+    mode = 'driving'
+    optimisation = 'distance'
+    dtfr = cp.get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
+    print("dtfr")
+    # dtfr.to_csv("trajet_test.csv")
+    df_filtered = dtfr.loc[(dtfr['distance'] < d_max) & (dtfr['distance'] > 50000)]
+    print("df filtered")
+
+    print(pl.get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale))
 
 
-    result = jsonify({"result": "Bien reçu."})
+
+
+
 
     return result
+
+@app.route('/result', methods = ['GET', 'POST'])
+def result():
+    if request.method == 'GET':
+        place = request.args.get('place', None)
+        if place:
+            return place
+        return "No place information is given"
+
 
 
 ###############################################################################
