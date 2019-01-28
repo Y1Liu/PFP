@@ -157,7 +157,7 @@ def trajet():
     t_max = 7200
     d_max = 400000
     mode = 'driving'
-    optimisation = 'distance'
+    optimisation = 'affinity'
     dtfr = cp.get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
     print("dtfr")
     # dtfr.to_csv("trajet_test.csv")
