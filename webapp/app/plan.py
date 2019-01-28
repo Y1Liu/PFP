@@ -37,7 +37,6 @@ from graphnode import *#########################################################
 """
 def children(node, df, overallScore, target, optimization, filtre, distance_begin):
     children=[]
-    print(node)
     d1=filtre.loc[filtre['cityDep_id']==node.city]['cityArr_id']
 
 
@@ -130,7 +129,6 @@ def get_path(start, target, df, overall_score, optimization, filtre, df_cities, 
     distance_begin=0
     for k in range(0,len(waypoint)+1):
         if k<(len(waypoint)-1):
-            print(waypoint[k])
             target_id=100000+k
             next_target=Node(target_id, 0, None, 0, 0)
         elif k==(len(waypoint)-1):
