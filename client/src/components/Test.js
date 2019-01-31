@@ -13,6 +13,11 @@ class Nav extends React.Component{
     get(){
         axios.get('/test').then((res)=>{
             console.log(res.data);
+
+            for (var i = 0; i <=res.data.length-1; i++) {
+                console.log(res.data[i][0])
+            }
+            
             
         }).catch((err)=>{
             console.log(err.status);

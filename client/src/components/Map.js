@@ -1,41 +1,126 @@
+/*global google*/
 import React, { Component } from 'react'
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
- 
+import ReactDom from 'react-dom';
+import axios from 'axios'
 
-class MapContainer extends Component {
+
+const { compose, withProps, lifecycle } = require("recompose");
+const {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  DirectionsRenderer,
+} = require("react-google-maps");
+
+
+
+  
+const MapWithADirectionsRenderer = compose(
+  withProps({
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8pxsl2jFQSwshMT2I5Weue8CKLgxalY8&v=3.exp&libraries=geometry,drawing,places",
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `100vh` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
+  }),
+  withScriptjs,
+  withGoogleMap,
+  lifecycle({
+    componentDidMount() {
+    const DirectionsService = new google.maps.DirectionsService();
+    
+      DirectionsService.route({
+        origin: 'Lille',
+    waypoints: [
+    {
+      location: 'Amiens',
+      stopover: true
+    }],
+        destination: 'Djion',
+        travelMode: google.maps.TravelMode.DRIVING,
+      }, (result, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          this.setState({
+            directions: result,
+          });
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      });
+    }
+  })
+)
+
+(props =>
+  <GoogleMap
+    defaultZoom={7}
+    defaultCenter={new google.maps.LatLng(47.0824, 2.3985)}
+  >
+    {props.directions && <DirectionsRenderer directions={props.directions} />}
+  </GoogleMap>
+);
+
+
+
+class Map extends React.PureComponent {
+  
+
+  state = {
+    isMarkerShown: false,
+  }
+
+  componentDidMount() {
+    this.delayedShowMarker()
+  }
+
+  delayedShowMarker = () => {
+    setTimeout(() => {
+      this.setState({ isMarkerShown: true })
+    }, 3000)
+  }
+
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false })
+    this.delayedShowMarker()
+  }
+
+  constructor(){
+        super();
+        this.state = {
+            arr: {}
+        };
+        this.get = this.get.bind(this);
+    }
+    get(){
+        axios.get('/test').then((res)=>{
+            
+            for (var i = 0; i <=res.data.length-1; i++) {
+                console.log(res.data[i][0])            
+
+            }
+            
+            
+        }).catch((err)=>{
+            console.log(err.status);
+        })
+    }
+
   render() {
- 
     return (
+    <div>
+    <div>
+            <input type="button" value="Test" onClick={this.get}/>
+       
+
+        </div>
 
 
-       <div className="container">
+    <MapWithADirectionsRenderer
+        isMarkerShown={this.state.isMarkerShown}
+        onMarkerClick={this.handleMarkerClick}
+      />
 
-       <Map
-        item
-        xs = { 12 }
- 
-        google = { this.props.google }
-        onClick = { this.onMapClick }
-        zoom = { 14 }
-        initialCenter = {{ lat: 48.856667, lng: 2.351944 }}
-      >
- 
-        <Marker
-          onClick = { this.onMarkerClick }
-          title = { 'Changing Colors Garage' }
-          position = {{ lat: 48.856667, lng: 2.351944 }}
-          name = { 'Changing Colors Garage' }
-        />
- 
-        
-      </Map>
-      
-      </div>
-      
-    );
+    </div>
+    )
   }
 }
- 
-export default GoogleApiWrapper({
-  apiKey: ("AIzaSyB8pxsl2jFQSwshMT2I5Weue8CKLgxalY8")
-})(MapContainer)
+export default Map;
