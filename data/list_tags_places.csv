@@ -1,3 +1,4 @@
+id,tag
 4cd5555fa5b34688a1248d50,Art
 4cd5555fa5b34688a1248d50,Museum
 4adcda10f964a520af3521e3,Art
@@ -3357,7 +3358,7 @@
 4d4db49bd6f3224b864c9fa6,Performing
 4d4db49bd6f3224b864c9fa6,Arts
 4d4db49bd6f3224b864c9fa6,Venue
-4ba4fe9bf964a520bccd38e3,Café
+4ba4fe9bf964a520bccd38e3,Cafï¿½
 4c8b62db9ef0224b6da7637b,General
 4c8b62db9ef0224b6da7637b,Entertainment
 4c9f13620e9bb1f7a06ced5f,Music
@@ -3839,7 +3840,7 @@
 4e56b810aeb784cb898bdf1e,Entertainment
 4e5568e77d8b47a8d2702f80,General
 4e5568e77d8b47a8d2702f80,Entertainment
-4d512da39ffc236ab02520a7,Café
+4d512da39ffc236ab02520a7,Cafï¿½
 4e0f524d8877936cb40e488d,Theater
 4ec8017b775bf65c0415b51d,Concert
 4ec8017b775bf65c0415b51d,Hall
@@ -4017,4 +4018,5 @@
 4fe75227e4b0ed119cec8b66,Sculpture
 4b5b312df964a52007ea28e3,Multiplex
 50803d9be4b02113451dd42f,Comedy
-50803d9be4b02113451dd42f,Club
+50803d9be4b02113451dd42f,Club
+

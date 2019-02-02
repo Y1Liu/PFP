@@ -146,7 +146,8 @@ def trajet():
     trajets = mongo1.db.trajets
     add_dep = request.get_json()['first_name']
     add_arr = request.get_json()['last_name']
-
+    print(add_dep)
+    print(add_arr)
     jourdedepart = request.get_json()['email']
     jourdarrivee = request.get_json()['password']
 
