@@ -182,7 +182,7 @@ def get_todolist(arr, tag) :
 """
 def get_lat_lng(city) :
     a=[]
-    info_ville = pd.read_csv('../../data/cities.csv' , encoding = 'latin-1', names = ["id", "name", "lat", "lng"])
+    info_ville = pd.read_csv('../../data/cities.csv' , encoding = 'utf-8', names = ["id", "name", "lat", "lng"])
 
     #on recupere l'id de la ville d'arriveé
     ville_arr = info_ville.loc[info_ville["name"] == city, ['lat','lng']]
@@ -193,7 +193,7 @@ def get_lat_lng(city) :
 
 
 print(get_lat_lng('Marseille'))
-
+"""
 
 datas=init_matrix()
 tags=['Art', 'Museum']
@@ -212,6 +212,6 @@ dtfr=get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
 df_filtered = dtfr.loc[(dtfr['distance']<d_max) & (dtfr['distance'] > 50000)]
 print(get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale))
 
-print(get_todolist(add_arr, tags))
-
+#print(get_todolist(add_arr, tags))
+"""
 ###############################################################################

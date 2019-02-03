@@ -73,4 +73,4 @@ def schedule_str(t_dep, t_arr, df, result_plan):
 ###############################################################################
 
 
-def schedule_bis(dep_date, dep_arr)
+#def schedule_bis(dep_date, dep_arr)

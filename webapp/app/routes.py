@@ -157,11 +157,11 @@ def trajet():
 
     start = Node(1000, 0, None, 0, 0)
     target = Node(10000, 0, None, 0, 0)
-    escale = ['']
+    escale = ['Tours']
     t_max = 7200
     d_max = 400000
     mode = 'driving'
-    optimisation = 'affinity'
+    optimisation = 'time'
     dtfr = cp.get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
     df_filtered = dtfr.loc[(dtfr['distance'] < d_max) & (dtfr['distance'] > 50000)]
     test = pl.get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale)
