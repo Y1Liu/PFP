@@ -157,7 +157,7 @@ def trajet():
 
     start = Node(1000, 0, None, 0, 0)
     target = Node(10000, 0, None, 0, 0)
-    escale = ['Tours']
+    escale = ['']
     t_max = 7200
     d_max = 400000
     mode = 'driving'
