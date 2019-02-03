@@ -181,14 +181,18 @@ def get_todolist(arr, tag) :
     return ( (list_act_lie_tag[1])['name'], (list_act_lie_tag[0])['name'])
 
 def get_lat_lng(city) :
+    a=[]
     info_ville = pd.read_csv('../../data/cities.csv' , encoding = 'latin-1')
 
     #on recupere l'id de la ville d'arriveé
     ville_arr = info_ville.loc[info_ville["name"] == city, ['lat','lng']]
-    return ville_arr
+
+    a.append(ville_arr['lat'].item())
+    a.append((ville_arr['lng'].item()))
+    return a
 
 
-get_lat_lng('Marseille')
+print(get_lat_lng('Marseille'))
 """
 datas=init_matrix()
 tags=['Art', 'Museum']
