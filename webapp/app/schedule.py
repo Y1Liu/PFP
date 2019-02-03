@@ -71,3 +71,6 @@ def schedule_str(t_dep, t_arr, df, result_plan):
         str_heures.append(str(datetime.timedelta(seconds=int(x))))
     return str_heures
 ###############################################################################
+
+
+def schedule_bis(dep_date, dep_arr)

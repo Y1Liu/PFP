@@ -165,6 +165,7 @@ def trajet():
     dtfr = cp.get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
     df_filtered = dtfr.loc[(dtfr['distance'] < d_max) & (dtfr['distance'] > 50000)]
     test = pl.get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale)
+    print(test)
     session["test"] = test[0]
     return redirect('/test')
 
