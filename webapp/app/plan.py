@@ -163,7 +163,7 @@ def get_path(start, target, df, overall_score, optimization, filtre, df_cities, 
             idx=obj-100000
             result_names.append([waypoint[idx], 0])
     return (result_names, result_id)
-
+"""
 def get_todolist(arr, tag) :
     place_info = pd.read_csv('../../data/all_places.csv', encoding = 'utf-8')
     info_ville = pd.read_csv('../../data/cities.csv' , encoding = 'utf-8')
@@ -179,10 +179,10 @@ def get_todolist(arr, tag) :
     for i in range(0, len(tag)):
         list_act_lie_tag.append(list_act_ville_arr.merge(tag_place[tag_place['tag'] == tag[i]], left_on='id', right_on='id', how='inner'))
     return ( (list_act_lie_tag[1])['name'], (list_act_lie_tag[0])['name'])
-
+"""
 def get_lat_lng(city) :
     a=[]
-    info_ville = pd.read_csv('../../data/cities.csv' , encoding = 'latin-1')
+    info_ville = pd.read_csv('../../data/cities.csv' , encoding = 'latin-1', names = ["id", "name", "lat", "lng"])
 
     #on recupere l'id de la ville d'arriveé
     ville_arr = info_ville.loc[info_ville["name"] == city, ['lat','lng']]
@@ -193,7 +193,8 @@ def get_lat_lng(city) :
 
 
 print(get_lat_lng('Marseille'))
-"""
+
+
 datas=init_matrix()
 tags=['Art', 'Museum']
 overall_score = get_classement(datas[2], tags, datas[1], datas[3], datas[0])[0]
@@ -205,12 +206,12 @@ escale=['']
 t_max=7200
 d_max=400000
 mode='driving'
-optimisation='distance'
+optimisation='affinity'
 dtfr=get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
 #dtfr.to_csv("trajet_test.csv")
 df_filtered = dtfr.loc[(dtfr['distance']<d_max) & (dtfr['distance'] > 50000)]
 print(get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale))
 
 print(get_todolist(add_arr, tags))
-"""
+
 ###############################################################################
