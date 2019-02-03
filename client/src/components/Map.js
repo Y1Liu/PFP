@@ -133,27 +133,40 @@ const MapWithADirectionsRenderer = compose(
 );
 
     return (
-    <div>
-    <div>
-            <input type="button" value="Test" onClick={this.get}/>
-            <ul>
-           
-           <li> {this.state.city} </li>
-           
-           </ul>
+<div class="container">
 
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home" onClick={this.get}>Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+    </li>
+  </ul>
 
-       
-
-        </div>
-
-
-    <MapWithADirectionsRenderer
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active">
+       <MapWithADirectionsRenderer
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
-
     </div>
+    <div id="menu1" class="container tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="container tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+</div>
+
+
+    
     )
   }
 }
