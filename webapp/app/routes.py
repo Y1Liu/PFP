@@ -165,8 +165,10 @@ def trajet():
     dtfr = cp.get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
     df_filtered = dtfr.loc[(dtfr['distance'] < d_max) & (dtfr['distance'] > 50000)]
     test = pl.get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale)
-    print(test)
+    test2= pl.get_lat_lng(add_arr)
+    print(test2)
     session["test"] = test[0]
+    session["test2"] = test2
     return redirect('/test')
 
 
@@ -176,7 +178,14 @@ def trajet():
 @app.route('/test', methods=['GET', 'POST'])
 def test_post():
     test = session.get("test", None)
+    print(test)
     return json.dumps(test)
+
+@app.route('/test2', methods=['GET', 'POST'])
+def test2_post():
+    test2 = session.get("test2", None)
+    print(test2)
+    return json.dumps(test2)
 
 
 
