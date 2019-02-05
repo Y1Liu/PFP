@@ -78,6 +78,26 @@ class Map extends React.PureComponent {
     }
 
 
+    get3(){
+        axios.get('/test3').then((res)=>{            
+           for (var i = 0; i <=res.data.length; i++) {
+              for(var j = 0; j<=res.data[i].length ; j++) {
+                console.log(res.data[i])
+
+              }
+             
+           }
+           
+         
+
+        }).catch((err)=>{
+            console.log(err.status);
+        })
+    }
+
+
+
+
 
   render() {
 
