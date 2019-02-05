@@ -36,10 +36,12 @@ class Login extends Component {
     return (
 
       <div className="container">
-        <div className="row">
+        <div className="jumbotron mt-5">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+              <h1 className="h2 mb-3 font-weight-normal">Please sign in</h1>
+                 <br></br>
+                    <br></br>
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
                 <input
@@ -62,6 +64,7 @@ class Login extends Component {
                   onChange={this.onChange}
                 />
               </div>
+              <br></br>
               <button
                 type="submit"
                 className="btn btn-lg btn-primary btn-block"

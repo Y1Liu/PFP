@@ -48,7 +48,12 @@ export const trajet = newTrajet => {
       first_name: newTrajet.first_name,
       last_name: newTrajet.last_name,
       email: newTrajet.email,
-      password: newTrajet.password
+      password: newTrajet.password,
+      h_dep: newTrajet.h_dep,
+      h_arr: newTrajet.h_arr,
+      escale: newTrajet.escale,
+      tag: newTrajet.tag
+
     })
     .then(response => {
       console.log('Registered')

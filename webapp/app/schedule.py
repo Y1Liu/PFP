@@ -21,6 +21,7 @@ from dataframes import params_toDf, cities_toDf
 from datetime import date
 import xml.etree.ElementTree as ET
 import urllib.request
+
 ###############################################################################
 
 
@@ -29,7 +30,7 @@ import urllib.request
 ###############################################################################
 """
     Retourne en seconde une heure au format HH:MM
-    IN : 
+    IN :  
         time_str : str(heure au format HH:MM)    
     OUT : 
         int(heure en seconde)
@@ -110,6 +111,7 @@ def get_budget(ville_dep, vill_ar):
 
         #root = ET.parse(urllib.urlopen(requesturl)).getroot()
         tree = ET.parse(urllib.request.urlopen(requesturl))
+
         #print(tree)
         root = tree.getroot()
         b=0
@@ -118,22 +120,29 @@ def get_budget(ville_dep, vill_ar):
                 for indicprice in atype.findall('{http://www.rome2rio.com/api/1.4/xml}IndicativePrice'):
                     #print(indicprice)
                    # print(indicprice.attrib)
-                    a = int(indicprice.get('price'))
+                    a = indicprice.get('price').encode("utf-8")
+                    a = int(a)
                     b=b+a
                     #print(a)
                     #print(b)
 
 
         b = b//3
-        b = str(b)
-        b.encode("utf-8")
+        b=str(b)
+
+
         return (b + "$")
 
 def get_price_for_each(cities):
     a = []
+
     for i in range (0,len((cities[0]))-1):
 
-        a.append(get_budget((cities[0][i])[0],(cities[0][i+1])[0]))
+
+        t = str(get_budget((cities[0][i])[0], (cities[0][i + 1])[0]))
+        t = t.encode('ascii', 'ignore').decode('ascii')
+
+        a.append(t)
 
     return a
 

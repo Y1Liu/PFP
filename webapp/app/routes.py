@@ -45,6 +45,7 @@ from graphnode import *
 import configparser
 import numpy as np
 
+
 ###############################################################################
 
 
@@ -152,21 +153,55 @@ def trajet():
     jourdarrivee = request.get_json()['password']
 
     datas = cp.init_matrix()
-    tags = ['Art', 'Museum']
+    escale = []
+    escale.append(request.get_json()['escale'])
+    tags =[]
+    tags.append(request.get_json()['tag'])
+    h_dep = request.get_json()['h_dep']
+    h_arr = request.get_json()['h_arr']
+   # tags = ['Football']
     overall_score = cp.get_classement(datas[2], tags, datas[1], datas[3], datas[0])[0]
 
     start = Node(1000, 0, None, 0, 0)
     target = Node(10000, 0, None, 0, 0)
-    escale = ['']
+    #escale = ['']
     t_max = 7200
     d_max = 400000
     mode = 'driving'
     optimisation = 'time'
     dtfr = cp.get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
+    #df_filtered=dtfr.loc[(dtfr['distance'] < t_max)]
     df_filtered = dtfr.loc[(dtfr['distance'] < d_max) & (dtfr['distance'] > 50000)]
     test = pl.get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale)
-    print(test)
+    test2= pl.get_lat_lng(add_arr)
+    trajet_id=test[1]
+    trajet_donnees = test[0]
+
+    time = sc.schedule_str(h_dep, h_arr, dtfr, trajet_id)
+    print(time)
+    price = sc.get_price_for_each(test)
+    print(price)
+
+    print(trajet_donnees[0])
+
+    trj = []
+    temp = []
+    for i in range(0,len(trajet_donnees)):
+        trj.append((trajet_donnees[i][0]))
+    temp.append(trj)
+    temp.append(price)
+    temp.append(time)
+
+    list_time = []
+    list_price = []
+    list_ville = []
+
+    print(temp)
+    session["test3"] = temp
+
+    print(test2)
     session["test"] = test[0]
+    session["test2"] = test2
     return redirect('/test')
 
 
@@ -176,7 +211,14 @@ def trajet():
 @app.route('/test', methods=['GET', 'POST'])
 def test_post():
     test = session.get("test", None)
+    print(test)
     return json.dumps(test)
+
+@app.route('/test2', methods=['GET', 'POST'])
+def test2_post():
+    test2 = session.get("test2", None)
+    print(test2)
+    return json.dumps(test2)
 
 
 

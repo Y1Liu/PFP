@@ -41,7 +41,7 @@ def types_toDf():
 """
 #Fonction permettant de mettre la table CITY au format de DataFrame
 def cities_toDf():
-    results=pd.read_csv('../../data/cities.csv', names=['id', 'name', 'lat', 'lng'], encoding='utf-8')
+    results=pd.read_csv('../../data/cities.csv', names=['id', 'name', 'lat', 'lng'], encoding='latin-1')
     return results
 
 

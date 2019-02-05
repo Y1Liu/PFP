@@ -3,8 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b2237c9d-fe24-4a17-8e87-e66150266f2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/webapp/app/plan.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/app/plan.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/app/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/app/schedule.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/app/routes.py" afterDir="false" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +27,7 @@
     <SUITE FILE_PATH="coverage/PFP$plan.coverage" NAME="plan Coverage Results" MODIFIED="1549377314309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webapp/app" />
     <SUITE FILE_PATH="coverage/PFP$schedule.coverage" NAME="schedule Coverage Results" MODIFIED="1549374432110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webapp/app" />
   </component>
+<<<<<<< HEAD
   <component name="FUSProjectUsageTrigger">
     <session id="959791579">
       <usages-collector id="statistics.lifecycle.project">
@@ -61,18 +72,26 @@
       </usages-collector>
     </session>
   </component>
+=======
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webapp/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="801">
               <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+=======
+            <state relative-caret-position="302">
+              <caret line="177" column="44" lean-forward="true" selection-start-line="177" selection-start-column="44" selection-end-line="177" selection-end-column="44" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/webapp/app/dataframes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="630">
@@ -107,13 +126,25 @@
               <folding>
                 <element signature="e#545#564#0" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/webapp/app/form.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/app/dataframes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="43" column="100" selection-start-line="43" selection-start-column="100" selection-end-line="43" selection-end-column="100" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/app/schedule.py">
+        <entry file="file://$PROJECT_DIR$/webapp/app/plan.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="219">
               <caret line="129" column="17" selection-start-line="129" selection-start-column="17" selection-end-line="129" selection-end-column="17" />
               <folding>
@@ -121,11 +152,16 @@
                 <marker date="1549377311475" expanded="true" signature="2706:2711" ph="..." />
                 <marker date="1549377311475" expanded="true" signature="4275:4407" ph="..." />
               </folding>
+=======
+            <state relative-caret-position="330">
+              <caret line="194" column="31" selection-start-line="194" selection-start-column="31" selection-end-line="194" selection-end-column="31" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/webapp/app/registerform.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -133,6 +169,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/app/db.py">
           <provider selected="true" editor-type-id="text-editor" />
+=======
+        <entry file="file://$PROJECT_DIR$/data/list_tags_places2.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/GPScoords.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -172,9 +223,13 @@
         <option value="$PROJECT_DIR$/data/list_tags_places.csv" />
         <option value="$PROJECT_DIR$/data/cities.csv" />
         <option value="$PROJECT_DIR$/webapp/app/dataframes.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/webapp/app/routes.py" />
         <option value="$PROJECT_DIR$/webapp/app/schedule.py" />
+=======
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
         <option value="$PROJECT_DIR$/webapp/app/plan.py" />
+        <option value="$PROJECT_DIR$/webapp/app/routes.py" />
       </list>
     </option>
   </component>
@@ -194,16 +249,23 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="81" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="826" />
+=======
+    <option name="x" value="-12" />
+    <option name="width" value="1524" />
+    <option name="height" value="1932" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -255,13 +317,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Projet V1 (Full Flask)/webapp" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -354,7 +415,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="SDK_HOME" value="C:\Users\L7653\AppData\Local\Programs\Python\Python37-32\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/webapp/app" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -431,23 +492,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="826" extended-state="6" />
+    <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1416309" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17319588" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2900662" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.672165" weight="0.28944248" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4030668" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32847682" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3258278" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.4821192" />
+=======
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49896908" weight="0.32858837" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.32783505" side_tool="true" weight="0.28944248" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49965635" weight="0.3262159" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32968238" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -461,13 +534,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webapp/config.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/similaritiesTags.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -606,27 +673,48 @@
     <entry file="file://$PROJECT_DIR$/data/placesSimilarities.csv">
       <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/app/form.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/placeTags.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/data/list_tags_places2.csv">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/GPScoords.csv">
+=======
+    <entry file="file://$PROJECT_DIR$/data/params.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/data_route.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/data_place.json">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/webapp/app/computing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="395" column="7" selection-start-line="395" selection-start-column="4" selection-end-line="395" selection-end-column="7" />
+          <folding>
+            <element signature="e#545#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
     </entry>
     <entry file="file://$PROJECT_DIR$/data/all_places.csv">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/tags.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/cities.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/trajet_essai.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/webapp/app/data_mining.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -651,8 +739,35 @@
             <element signature="e#545#564#0" expanded="true" />
           </folding>
         </state>
+=======
+    <entry file="file://$PROJECT_DIR$/data/data_place.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22032" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/app/schedule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="894">
+          <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/app/dataframes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="100" selection-start-line="43" selection-start-column="100" selection-end-line="43" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/list_tags_places2.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/webapp/app/registerform.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -678,17 +793,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="801">
           <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
-        </state>
+=======
+    <entry file="file://$PROJECT_DIR$/data/GPScoords.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
       </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data_route.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/app/form.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/app/plan.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="194" column="31" selection-start-line="194" selection-start-column="31" selection-end-line="194" selection-end-column="31" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/app/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="384">
           <caret line="232" column="3" selection-start-line="232" selection-start-column="3" selection-end-line="232" selection-end-column="3" />
           <folding>
             <element signature="e#516#583#0" expanded="true" />
             <marker date="1549377468416" expanded="true" signature="8783:8784" ph="..." />
           </folding>
+=======
+        <state relative-caret-position="302">
+          <caret line="177" column="44" lean-forward="true" selection-start-line="177" selection-start-column="44" selection-end-line="177" selection-end-column="44" />
+>>>>>>> b1b23583614e319cace33d47bba0334896c32d00
         </state>
       </provider>
     </entry>

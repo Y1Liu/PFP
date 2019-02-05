@@ -22,6 +22,7 @@ from dataframes import params_toDf
 from datetime import date
 
 
+
 ###############################################################################
 #FONCTIONS
 ###############################################################################
@@ -160,7 +161,7 @@ def get_path(start, target, df, overall_score, optimization, filtre, df_cities, 
             pere=child
             tmp=stack[-1].city
             print("TMP : "+ str(tmp))
-            distance_begin += pere.G / max_distance
+            distance_begin += pere.G /max_distance
     for obj in stack:
         result_id.append(obj.city)
     ###########################################################################
@@ -203,10 +204,10 @@ def get_lat_lng(city) :
     a.append((ville_arr['lng'].item()))
     return a
 
-
+"""
 print(get_lat_lng('Marseille'))
 
-"""
+
 datas=init_matrix()
 tags=['Art', 'Museum']
 overall_score = get_classement(datas[2], tags, datas[1], datas[3], datas[0])[0]
