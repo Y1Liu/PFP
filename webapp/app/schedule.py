@@ -17,6 +17,10 @@
 import datetime
 import pandas as pd
 import numpy as np
+from dataframes import params_toDf, cities_toDf
+from datetime import date
+import xml.etree.ElementTree as ET
+import urllib.request
 ###############################################################################
 
 
@@ -50,13 +54,13 @@ def get_sec(time_str):
 def schedule_str(t_dep, t_arr, df, result_plan):
     t_dep_conv=get_sec(t_dep)
     t_arr_conv=get_sec(t_arr)
+    index=0
     heures=[t_dep_conv]
     str_heures=[]
     t=t_dep_conv
     for i in range(0, len(result_plan)-1):
         delta=df.loc[((df['cityDep_id']==result_plan[i])&(df['cityArr_id']==result_plan[i+1])) ^ ((df['cityDep_id']==result_plan[i+1])&(df['cityArr_id']==result_plan[i])), 'time'].values[0]
         t=t+delta
-        #print(t)
         heures.append(t)
     for i in range(0, len(heures)):
         #Arret après 22h
@@ -69,8 +73,71 @@ def schedule_str(t_dep, t_arr, df, result_plan):
         heures[k]=heures[k]+delta_t
     for x in heures:
         str_heures.append(str(datetime.timedelta(seconds=int(x))))
+    print(str_heures)
     return str_heures
 ###############################################################################
 
 
-#def schedule_bis(dep_date, dep_arr)
+def time_cities(cities):
+    cities_time = params_toDf("driving")
+    citiesdf = cities_toDf()
+
+    a = []
+
+
+    listid = []
+    for i in range(0, len(cities[0])):
+        city_id = citiesdf.loc[(citiesdf)['name']==(cities[0])[i][0], ["id"]]
+        listid.append(city_id["id"].item())
+
+    print(listid)
+    for i in range (0,len(listid)-1):
+        b = cities_time.loc[((cities_time['cityDep_id']==listid[i]) & (cities_time['cityArr_id']==listid[i+1])) | ((cities_time['cityArr_id']==listid[i]) & (cities_time['cityDep_id']==listid[i+1])) , ["time","cityArr_id","cityDep_id"]]
+
+        a.append(round(b["time"].item()/(60*60)))
+
+    print(a)
+    return a
+
+
+
+def get_budget(ville_dep, vill_ar):
+        print(ville_dep)
+        print(vill_ar)
+        requesturl = "http://free.rome2rio.com/api/1.4/xml/Search?key=PM125tIR" \
+        + '&oName=' + ville_dep \
+        + '&dName=' + vill_ar \
+
+        #root = ET.parse(urllib.urlopen(requesturl)).getroot()
+        tree = ET.parse(urllib.request.urlopen(requesturl))
+        #print(tree)
+        root = tree.getroot()
+        b=0
+        for atype in root.findall("{http://www.rome2rio.com/api/1.4/xml}Route"):
+            if atype.get('name')=="Drive":
+                for indicprice in atype.findall('{http://www.rome2rio.com/api/1.4/xml}IndicativePrice'):
+                    #print(indicprice)
+                   # print(indicprice.attrib)
+                    a = int(indicprice.get('price'))
+                    b=b+a
+                    #print(a)
+                    #print(b)
+
+
+        b = b//3
+        b = str(b)
+        b.encode("utf-8")
+        return (b + "$")
+
+def get_price_for_each(cities):
+    a = []
+    for i in range (0,len((cities[0]))-1):
+
+        a.append(get_budget((cities[0][i])[0],(cities[0][i+1])[0]))
+
+    return a
+
+
+
+
+

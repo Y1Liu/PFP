@@ -17,6 +17,9 @@
 from computing import get_graph_matrix, init_matrix, get_classement
 import pandas as pd
 from graphnode import *###############################################################################
+from schedule import time_cities, schedule_str, get_price_for_each
+from dataframes import params_toDf
+from datetime import date
 
 
 ###############################################################################
@@ -95,7 +98,7 @@ def get_best_child(liste, overall_score, optimization, max_G, max_H):
                     liste[i]=liste[j]
                     liste[j]=tmp
             else:
-                if((x1+y1)>(x2+y2)):
+                if((x1/max_G+y1/max_H)>(x2/max_G+y2/max_H)):
                     tmp=liste[i]
                     liste[i]=liste[j]
                     liste[j]=tmp
@@ -139,16 +142,25 @@ def get_path(start, target, df, overall_score, optimization, filtre, df_cities, 
             next_target = Node(target_id, 0, None, 0, 0)
         while(tmp!=next_target.city):
             x=children(pere, df, overall_score, next_target, 'distance', filtre, distance_begin)
+
             temp=x
             for node_s in stack:
                 for node_c in x:
                     if(node_s.city==node_c.city):
                         temp.remove(node_c)
-            child=get_best_child(temp, overall_score, optimization, overall_score['Score'].max(), df['heuristic'].max())
+            max_distance=df['distance'].max()
+            if next_target in x :
+                child=next_target
+            else:
+                try:
+                    child = get_best_child(temp, overall_score, optimization, max_distance, df['heuristic'].max())
+                except:
+                    return(-1)
             stack.append(child)
             pere=child
             tmp=stack[-1].city
-            distance_begin += pere.G
+            print("TMP : "+ str(tmp))
+            distance_begin += pere.G / max_distance
     for obj in stack:
         result_id.append(obj.city)
     ###########################################################################
@@ -159,7 +171,7 @@ def get_path(start, target, df, overall_score, optimization, filtre, df_cities, 
             result_names.append([add_dep, 0])
         elif(obj==10000):
             result_names.append([add_arr, 0])
-        elif(obj >= 100000): 
+        elif(obj >= 100000):
             idx=obj-100000
             result_names.append([waypoint[idx], 0])
     return (result_names, result_id)
@@ -193,8 +205,8 @@ def get_lat_lng(city) :
 
 
 print(get_lat_lng('Marseille'))
-"""
 
+"""
 datas=init_matrix()
 tags=['Art', 'Museum']
 overall_score = get_classement(datas[2], tags, datas[1], datas[3], datas[0])[0]
@@ -202,15 +214,20 @@ start=Node(1000, 0, None, 0, 0)
 target=Node(10000, 0, None, 0, 0)
 add_dep='Lille'
 add_arr='Marseille'
-escale=['']
+escale=['Bordeaux']
 t_max=7200
 d_max=400000
 mode='driving'
-optimisation='affinity'
+optimisation='time'
 dtfr=get_graph_matrix(add_dep, add_arr, escale, mode, overall_score)
 #dtfr.to_csv("trajet_test.csv")
 df_filtered = dtfr.loc[(dtfr['distance']<d_max) & (dtfr['distance'] > 50000)]
-print(get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale))
+print(schedule_str("9:00", "22:00", dtfr, get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale)[1])
+)
+
+#planif(date(2019, 2, 2),date(2019,2 , 3),get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale))
+print(get_price_for_each(get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale)))
+print(((get_path(start, target, dtfr, overall_score, optimisation, df_filtered, datas[0], add_dep, add_arr, escale))))
 
 #print(get_todolist(add_arr, tags))
 """
