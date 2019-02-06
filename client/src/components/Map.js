@@ -189,13 +189,13 @@ const MapWithADirectionsRenderer = compose(
    <br></br>
    <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home" onClick={this.get}>Show your trip on the map</a>
+      <a class="nav-link active" data-toggle="tab" href="#home" onClick={this.get}>Votre trajet</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1" onClick={this.get}>Discover your destination</a>
+      <a class="nav-link" data-toggle="tab" href="#menu1" onClick={this.get}>Vos escales</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2" onClick={this.get}>Your schedule</a>
+      <a class="nav-link" data-toggle="tab" href="#menu2" onClick={this.get}>Informations</a>
     </li>
     </ul>
     <br></br>
@@ -218,8 +218,8 @@ const MapWithADirectionsRenderer = compose(
     <thead>
       <tr>
         <th>Ville</th>
-        <th>Temps d'arrivée </th>
-        <th>Budget de trafic</th>
+        <th>Heure d'arrivée</th>
+        <th>Budget</th>
       </tr>
     </thead>
     <tbody>

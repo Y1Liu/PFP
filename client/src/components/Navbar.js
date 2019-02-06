@@ -13,12 +13,12 @@ class Landing extends Component {
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/login" className="nav-link">
-            Login
+            Connexion
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/register" className="nav-link">
-            Register
+            Inscription
           </Link>
         </li>
      
@@ -29,17 +29,17 @@ class Landing extends Component {
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/profile" className="nav-link">
-            User
+            Utilisateur
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/form" className="nav-link">
-            Form
+            Plannifier votre voyage
           </Link>
         </li>
         <li className="nav-item">
           <a href="/" onClick={this.logOut.bind(this)} className="nav-link">
-            Logout
+            Déconnexion
           </a>
         </li>
 
@@ -67,7 +67,7 @@ class Landing extends Component {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                Home
+                Accueil
               </Link>
             </li>
           </ul>

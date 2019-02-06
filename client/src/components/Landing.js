@@ -36,7 +36,7 @@ class Landing extends Component {
     <div class="carousel-item">
       <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg"/>
       <div class="carousel-caption">
-        <h2>MONT</h2>
+        <h2>MONTAGNE</h2>
         <br/><br/>
       </div>
     </div>

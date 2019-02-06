@@ -40,49 +40,49 @@ class Register extends Component {
        <div className="jumbotron mt-5">
          <div className="col-md-6 mt-3 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h2 mb-3 font-weight-normal">Register</h1>
+              <h1 className="h2 mb-3 font-weight-normal">Inscription</h1>
                  <br></br>
                     <br></br>
               <div className="form-group">
-                <label htmlFor="name">First name</label>
+                <label htmlFor="name">Prénom</label>
                 <input
                   type="text"
                   className="form-control"
                   name="first_name"
-                  placeholder="Enter your first name"
+                  placeholder="Entrer votre prénom"
                   value={this.state.first_name}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">Last name</label>
+                <label htmlFor="name">Nom</label>
                 <input
                   type="text"
                   className="form-control"
                   name="last_name"
-                  placeholder="Enter your lastname name"
+                  placeholder="Entrer votre nom"
                   value={this.state.last_name}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email address</label>
+                <label htmlFor="email">Adresse email</label>
                 <input
                   type="email"
                   className="form-control"
                   name="email"
-                  placeholder="Enter email"
+                  placeholder="Entrer votre email"
                   value={this.state.email}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Mot de passe</label>
                 <input
                   type="password"
                   className="form-control"
                   name="password"
-                  placeholder="Password"
+                  placeholder="Entrer votre mot de passe"
                   value={this.state.password}
                   onChange={this.onChange}
                 />
@@ -92,7 +92,7 @@ class Register extends Component {
                 type="submit"
                 className="btn btn-lg btn-primary btn-block"
               >
-                Register!
+                Envoyer
               </button>
             </form>
           </div>

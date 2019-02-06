@@ -27,17 +27,17 @@ class Profile extends Component {
       <div className="container">
         <div className="jumbotron mt-5">
           <div className="col-sm-8 mx-auto">
-            <h1 className="text-center">PROFILE</h1>
+            <h1 className="text-center">PROFIL</h1>
             <br/>
           </div>
           <table className="table table-striped">
             <tbody>
               <tr>
-                <td>Fist Name</td>
+                <td>Prénom</td>
                 <td>{this.state.first_name}</td>
               </tr>
               <tr>
-                <td>Last Name</td>
+                <td>Nom</td>
                 <td>{this.state.last_name}</td>
               </tr>
               <tr>

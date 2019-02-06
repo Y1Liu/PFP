@@ -218,7 +218,7 @@ class Trajet extends Component {
          <div class="input-group mb-3">
       
           <div class="input-group-prepend">
-           <span class="input-group-text" style={{ width: 80 }} >Tag</span>
+           <span class="input-group-text" style={{ width: 80 }} >Préférence</span>
             </div>
                 <input
                   type="text"
