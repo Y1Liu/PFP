@@ -1,5 +1,17 @@
 import React, { Component } from 'react'
 import { trajet } from './UserFunctions'
+import Modal from 'react-modal'
+
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 class Trajet extends Component {
   constructor() {
@@ -13,13 +25,32 @@ class Trajet extends Component {
       h_arr: '',
       escale: '',
       tag:'',
+      modalIsOpen: false,
 
       errors: {}
     }
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
+
+  
+   openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#C0C0C0';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
@@ -210,7 +241,7 @@ class Trajet extends Component {
               <button
                 type="submit"
                 className="btn btn-lg btn-primary btn-block"
-                data-toggle="modal" data-target="#myModal"
+                onClick={this.openModal}
               >
                 C'est parti!
               </button>
@@ -218,28 +249,31 @@ class Trajet extends Component {
           </div>
 
 
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-             <div class="modal-dialog">
-               <div class="modal-content">
-                     <div class="modal-header">
-          <h4 class="modal-title">Un peu de patience</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-   
-        <div class="modal-body">
-          Le calcul de votre trajet sera fini dans un instant.
-        </div>
-   
-      
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-        </div>
+          <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+
+          <h3 ref={subtitle => this.subtitle = subtitle}>Chargement...</h3>
+          <br/>
+          <p>Un peu de patience. Le calcul de votre trajet sera fini dans un instant.</p>
+          <br/>
+          <div class="progress">
+             <div class="progress-bar progress-bar-striped progress-bar-animated" style={{width: 200}}></div>
+          </div>
+          <br/>
+          <br/>
+          <div>
+          <button class="btn btn-secondary" onClick={this.closeModal} >Annuler</button>
+          </div>
+         </Modal>
 
     
    
-      </div>
-    </div>
-  </div>
+      
       </div>
     )
   }
