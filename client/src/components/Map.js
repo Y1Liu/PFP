@@ -6,11 +6,11 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, DirectionsRenderer } fr
 
 
 
-var city0;
+var city0 ;
 var city1 ;
-var city2 ;
-var city3 ;
-var city4 ;
+var city = new Array();
+var budget = new Array(); 
+var time = new Array(); 
 var num0;
 var num1;
            
@@ -22,6 +22,7 @@ class Map extends React.PureComponent {
   
 
   state = {
+     show: false,
     isMarkerShown: false,
   }
 
@@ -48,45 +49,23 @@ class Map extends React.PureComponent {
         this.get = this.get.bind(this);
     }
     get(){
-        axios.get('/test').then((res)=>{
-            city1=res.data[0][0]
-            city2=res.data[2][0]
-            city4=res.data[3][0]
-            city3=res.data[res.data.length-1][0]
-            this.setState({city1})
-            
-        }).catch((err)=>{
-            console.log(err.status);
-        })
-    }
-
-
-
-
-
-    get2(){
-        axios.get('/test2').then((res)=>{            
-           num0 = res.data[0]
-           num1 = res.data[1] 
-           city0 = { lat: num0, lng: num1 }
-           this.setState({city0})
-         
-
-        }).catch((err)=>{
-            console.log(err.status);
-        })
-    }
-
-
-    get3(){
-        axios.get('/test3').then((res)=>{            
-           for (var i = 0; i <=res.data.length; i++) {
-              for(var j = 0; j<=res.data[i].length ; j++) {
-                console.log(res.data[i])
-
+       axios.get('/test3').then((res)=>{            
+           for (var i = 0; i <=res.data[0].length-1; i++) {
+              city[i] = res.data[0][i]
+              budget[i] = res.data[1][i]
+              time[i] = res.data[2][i]
+              
               }
-             
-           }
+          city1=res.data[0][res.data[0].length-1]
+          num0=res.data[3][0]
+          num1=res.data[3][1]    
+          city0 = { lat: num0, lng: num1 }
+
+
+          
+          console.log(res.data)
+          this.setState({city})
+           
            
          
 
@@ -94,10 +73,6 @@ class Map extends React.PureComponent {
             console.log(err.status);
         })
     }
-
-
-
-
 
   render() {
 
@@ -171,19 +146,23 @@ const MapWithADirectionsRenderer = compose(
     const DirectionsService = new google.maps.DirectionsService();
     
       DirectionsService.route({
-        origin: city1,
+        origin: city[0],
     waypoints: [
     {
-      location: city2,
+      location: city[1],
       stopover: true
     },
     {
-      location: city4,
+      location: city[2],
+      stopover: true
+    },
+    {
+      location: city[3],
       stopover: true
     }
     ],
      
-        destination: city3,
+        destination: city1,
         travelMode: google.maps.TravelMode.DRIVING,
       }, (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
@@ -206,17 +185,17 @@ const MapWithADirectionsRenderer = compose(
 );
 
     return (
-<div class="container">
+<div class="container" >
    <br></br>
    <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#home" onClick={this.get}>Show your trip on the map</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1" onClick={this.get2}>Discover your destination</a>
+      <a class="nav-link" data-toggle="tab" href="#menu1" onClick={this.get}>Discover your destination</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2" >Your schedule</a>
+      <a class="nav-link" data-toggle="tab" href="#menu2" onClick={this.get}>Your schedule</a>
     </li>
     </ul>
     <br></br>
@@ -235,7 +214,42 @@ const MapWithADirectionsRenderer = compose(
     
     </div>
     <div id="menu2" class="container tab-pane fade">
-     
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Ville</th>
+        <th>Temps d'arrivée </th>
+        <th>Budget de trafic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{city[0]}</td>
+        <td>{time[0]}</td>
+        <td>{budget[0]}</td>
+      </tr>
+      <tr>
+        <td>{city[1]}</td>
+        <td>{time[1]}</td>
+        <td>{budget[1]}</td>
+      </tr>
+      <tr>
+        <td>{city[2]}</td>
+        <td>{time[2]}</td>
+        <td>{budget[2]}</td>
+      </tr>
+       <tr>
+        <td>{city[3]}</td>
+        <td>{time[3]}</td>
+        <td>{budget[3]}</td>
+      </tr>
+       <tr>
+        <td>{city[4]}</td>
+        <td>{time[4]}</td>
+        <td>{budget[4]}</td>
+      </tr>
+    </tbody>
+  </table>
     </div>
     </div>
   </div>

@@ -49,16 +49,23 @@ class Trajet extends Component {
   render() {
     return (
       <div className="container">
+
         <div className="jumbotron mt-5">
-          <div className="col-md-6 mt-5 mx-auto">
-            <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Planifier votre voyage</h1><br/>
-
-
-              <div className="form-group">
-                <label htmlFor="name">Lieu de départ</label>
-
-                <input
+         <h1 className="h3 mb-3 font-weight-normal">Planifier votre voyage</h1><br/>
+         <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          VOTRE DEPART
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <br/>
+        <div class="card-body">
+         <div class="input-group mb-3">
+           <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }}>Ville</span>
+           </div>
+         <input
                   type="text"
                   className="form-control"
                   name="first_name"
@@ -66,10 +73,51 @@ class Trajet extends Component {
                   value={this.state.first_name}
                   onChange={this.onChange}
                 />
-              </div>
+        </div>
+          
+        <div class="input-group mb-3">
+           <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }} >Date</span>
+           </div>
+        <input
+                  type="date"
+                  className="form-control"
+                  name="email"
+                  placeholder=""
+                  value={this.state.email}
+                  onChange={this.onChange}
+                />
+        </div>
 
-              <div className="form-group">
-                <label htmlFor="name">Lieu d'arrivée</label>
+        <div class="input-group mb-3">
+           <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }} >Heure</span>
+           </div>
+        <input
+                  type="time"
+                  className="form-control"
+                  name="h_dep"
+                  placeholder=""
+                  value={this.state.h_dep}
+                  onChange={this.onChange}
+                />
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+        VOTRE ARRIVEE
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion" >
+        <div class="card-body">          
+              <div class="input-group mb-3">
+         <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }} >Ville</span>
+           </div>
                 <input
                   type="text"
                   className="form-control"
@@ -79,56 +127,11 @@ class Trajet extends Component {
                   onChange={this.onChange}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="name">Escale</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="escale"
-                  placeholder=""
-                  value={this.state.escale}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Tag</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="tag"
-                  placeholder=""
-                  value={this.state.tag}
-                  onChange={this.onChange}
-                />
-              </div>
 
-
-              <div className="form-group">
-                <label htmlFor="email">Jour de départ</label>
-                <input
-                  type="date"
-                  className="form-control"
-                  name="email"
-                  placeholder=""
-                  value={this.state.email}
-                  onChange={this.onChange}
-                />
-              </div>
-<div className="form-group">
-                <label htmlFor="email">heure de départ</label>
-                <input
-                  type="time"
-                  className="form-control"
-                  name="h_dep"
-                  placeholder=""
-                  value={this.state.h_dep}
-                  onChange={this.onChange}
-                />
-              </div>
-
-
-              <div className="form-group">
-                <label htmlFor="password">Jour d'arrivée</label>
+         <div class="input-group mb-3">
+           <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }} >Date</span>
+           </div>
                 <input
                   type="date"
                   className="form-control"
@@ -136,10 +139,12 @@ class Trajet extends Component {
                   placeholder=""
                   value={this.state.password}
                   onChange={this.onChange}
-                /><br/>
+                />
               </div>
-<div className="form-group">
-                <label htmlFor="email">heure d'arrivée</label>
+         <div class="input-group mb-3">
+           <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }} >Heure</span>
+           </div>
                 <input
                   type="time"
                   className="form-control"
@@ -150,15 +155,91 @@ class Trajet extends Component {
                 />
               </div>
 
+
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          AUTRES PARAMETRES
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+         <div class="input-group mb-3">
+      
+            <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }} >Escale</span>
+           </div>
+              
+                <input
+                  type="text"
+                  className="form-control"
+                  name="escale"
+                  placeholder=""
+                  value={this.state.escale}
+                  onChange={this.onChange}
+                />
+              </div>
+
+
+         <div class="input-group mb-3">
+      
+          <div class="input-group-prepend">
+           <span class="input-group-text" style={{ width: 80 }} >Tag</span>
+            </div>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="tag"
+                  placeholder=""
+                  value={this.state.tag}
+                  onChange={this.onChange}
+                />
+              </div>
+    
+         </div>
+        </div>
+      </div>
+    </div>
+            <div className="col-md-6 mt-5 mx-auto">
+            <form noValidate onSubmit={this.onSubmit}>
+             
+
               <button
                 type="submit"
                 className="btn btn-lg btn-primary btn-block"
+                data-toggle="modal" data-target="#myModal"
               >
                 C'est parti!
               </button>
             </form>
           </div>
+
+
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+               <div class="modal-content">
+                     <div class="modal-header">
+          <h4 class="modal-title">Un peu de patience</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+   
+        <div class="modal-body">
+          Le calcul de votre trajet sera fini dans un instant.
+        </div>
+   
+      
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        </div>
+
+    
+   
+      </div>
+    </div>
+  </div>
       </div>
     )
   }

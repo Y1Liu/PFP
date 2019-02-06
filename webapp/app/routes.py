@@ -161,7 +161,6 @@ def trajet():
     h_arr = request.get_json()['h_arr']
    # tags = ['Football']
     overall_score = cp.get_classement(datas[2], tags, datas[1], datas[3], datas[0])[0]
-
     start = Node(1000, 0, None, 0, 0)
     target = Node(10000, 0, None, 0, 0)
     #escale = ['']
@@ -191,6 +190,7 @@ def trajet():
     temp.append(trj)
     temp.append(price)
     temp.append(time)
+    temp.append(test2)
 
     list_time = []
     list_price = []
@@ -220,6 +220,11 @@ def test2_post():
     print(test2)
     return json.dumps(test2)
 
+@app.route('/test3', methods=['GET', 'POST'])
+def test_post3():
+    test3 = session.get("test3", None)
+    print(test3)
+    return json.dumps(test3)
 
 
 ###############################################################################
