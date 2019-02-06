@@ -21,12 +21,24 @@ class Landing extends Component {
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="https://static.runoob.com/images/mix/img_fjords_wide.jpg"/>
+      <div class="carousel-caption">
+        <h2>FJORDS</h2>
+        <br/><br/>
+      </div>
     </div>
     <div class="carousel-item">
       <img src="https://static.runoob.com/images/mix/img_nature_wide.jpg"/>
+      <div class="carousel-caption">
+        <h2>NATURE</h2>
+        <br/><br/>
+      </div>
     </div>
     <div class="carousel-item">
       <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg"/>
+      <div class="carousel-caption">
+        <h2>MONT</h2>
+        <br/><br/>
+      </div>
     </div>
   </div>
  
